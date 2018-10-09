@@ -1,10 +1,17 @@
 package com.h2rd.refactoring.usermanagement;
 
+import com.h2rd.refactoring.view.UserView;
 import java.util.ArrayList;
 
+/**
+ * @@deprecated  this class has been changed
+ */
 public class UserDao {
 
-    public ArrayList<User> users;
+    
+    
+    
+    public ArrayList<UserView> users;
 
     public static UserDao userDao;
 
@@ -15,14 +22,14 @@ public class UserDao {
         return userDao;
     }
 
-    public void saveUser(User user) {
+    public void saveUser(UserView user) {
         if (users == null) {
-            users = new ArrayList<User>();
+            users = new ArrayList<UserView>();
         }
         users.add(user);
     }
 
-    public ArrayList<User> getUsers() {
+    public ArrayList<UserView> getUsers() {
         try {
             return users;
         } catch (Throwable e) {
@@ -31,9 +38,9 @@ public class UserDao {
         }
     }
 
-    public void deleteUser(User userToDelete) {
+    public void deleteUser(UserView userToDelete) {
         try {
-            for (User user : users) {
+            for (UserView user : users) {
                 if (user.getName() == userToDelete.getName()) {
                     users.remove(user);
                 }
@@ -43,9 +50,9 @@ public class UserDao {
         }
     }
 
-    public void updateUser(User userToUpdate) {
+    public void updateUser(UserView userToUpdate) {
         try {
-            for (User user : users) {
+            for (UserView user : users) {
                 if (user.getName() == userToUpdate.getName()) {
                     user.setEmail(userToUpdate.getEmail());
                     user.setRoles(userToUpdate.getRoles());
@@ -56,9 +63,9 @@ public class UserDao {
         }
     }
 
-    public User findUser(String name) {
+    public UserView findUser(String name) {
         try {
-            for (User user : users) {
+            for (UserView user : users) {
                 if (user.getName() == name) {
                     return user;
                 }
