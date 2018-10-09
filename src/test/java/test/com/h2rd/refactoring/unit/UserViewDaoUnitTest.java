@@ -1,12 +1,13 @@
 package test.com.h2rd.refactoring.unit;
 
-import com.h2rd.refactoring.usermanagement.User;
+import com.j2rd.refactoring.entity.UserView;
 import com.h2rd.refactoring.usermanagement.UserDao;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-public class UserDaoUnitTest {
+public class UserViewDaoUnitTest
+{
 
     UserDao userDao;
 
@@ -14,7 +15,7 @@ public class UserDaoUnitTest {
     public void saveUserTest() {
         userDao = UserDao.getUserDao();
 
-        User user = new User();
+        UserView user = new UserView();
         user.setName("Fake Name");
         user.setEmail("fake@email.com");
         user.setRoles(Arrays.asList("admin", "master"));
@@ -26,7 +27,7 @@ public class UserDaoUnitTest {
     public void deleteUserTest() {
         userDao = UserDao.getUserDao();
 
-        User user = new User();
+        UserView user = new UserView();
         user.setName("Fake Name");
         user.setEmail("fake@email.com");
         user.setRoles(Arrays.asList("admin", "master"));

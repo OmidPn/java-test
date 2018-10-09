@@ -1,6 +1,6 @@
 package test.com.h2rd.refactoring.unit;
 
-import com.h2rd.refactoring.usermanagement.User;
+import com.j2rd.refactoring.entity.UserView;
 import com.h2rd.refactoring.usermanagement.UserDao;
 import com.h2rd.refactoring.web.UserResource;
 import junit.framework.Assert;
@@ -8,7 +8,8 @@ import org.junit.Test;
 
 import javax.ws.rs.core.Response;
 
-public class UserResourceUnitTest {
+public class UserViewResourceUnitTest
+{
 
     UserResource userResource;
     UserDao userDao;
@@ -19,7 +20,7 @@ public class UserResourceUnitTest {
         userResource = new UserResource();
         userDao = UserDao.getUserDao();
 
-        User user = new User();
+        UserView user = new UserView();
         user.setName("fake user");
         user.setEmail("fake@user.com");
         userDao.saveUser(user);

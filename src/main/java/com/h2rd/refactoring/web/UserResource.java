@@ -1,6 +1,6 @@
 package com.h2rd.refactoring.web;
 
-import com.h2rd.refactoring.usermanagement.User;
+import com.j2rd.refactoring.entity.UserView;
 import com.h2rd.refactoring.usermanagement.UserDao;
 
 import javax.ws.rs.*;
@@ -26,7 +26,7 @@ public class UserResource{
                             @QueryParam("email") String email,
                             @QueryParam("role") List<String> roles) {
 
-        User user = new User();
+        UserView user = new UserView();
         user.setName(name);
         user.setEmail(email);
         user.setRoles(roles);
@@ -45,7 +45,7 @@ public class UserResource{
                                @QueryParam("email") String email,
                                @QueryParam("role") List<String> roles) {
 
-        User user = new User();
+        UserView user = new UserView();
         user.setName(name);
         user.setEmail(email);
         user.setRoles(roles);
@@ -63,7 +63,7 @@ public class UserResource{
     public Response deleteUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
                                @QueryParam("role") List<String> roles) {
-        User user = new User();
+        UserView user = new UserView();
         user.setName(name);
         user.setEmail(email);
         user.setRoles(roles);
@@ -84,12 +84,12 @@ public class UserResource{
     		"classpath:/application-config.xml"	
     	});
     	userDao = context.getBean(UserDao.class);
-    	List<User> users = userDao.getUsers();
+    	List<UserView> users = userDao.getUsers();
     	if (users == null) {
-    		users = new ArrayList<User>();
+    		users = new ArrayList<UserView>();
     	}
 
-        GenericEntity<List<User>> usersEntity = new GenericEntity<List<User>>(users) {};
+        GenericEntity<List<UserView>> usersEntity = new GenericEntity<List<UserView>>(users) {};
         return Response.status(200).entity(usersEntity).build();
     }
 
@@ -101,7 +101,7 @@ public class UserResource{
             userDao = UserDao.getUserDao();
         }
 
-        User user = userDao.findUser(name);
+        UserView user = userDao.findUser(name);
         return Response.ok().entity(user).build();
     }
 }
