@@ -1,6 +1,6 @@
 package com.h2rd.refactoring.web;
 
-import com.j2rd.refactoring.entity.UserView;
+import com.h2rd.refactoring.view.UserView;
 import com.h2rd.refactoring.usermanagement.UserDao;
 
 import javax.ws.rs.*;
@@ -17,7 +17,8 @@ import java.util.List;
 @Path("/users")
 @Repository
 public class UserResource{
-
+ //this class should be splited to repository rest controller and services
+    /*
     public UserDao userDao;
 
     @GET
@@ -104,4 +105,5 @@ public class UserResource{
         UserView user = userDao.findUser(name);
         return Response.ok().entity(user).build();
     }
+    */
 }

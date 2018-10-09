@@ -18,20 +18,22 @@ public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "UserID", nullable = false)
+    @Column(name = "userId", nullable = false)
     private Long id;
     @Column(name = "name", nullable = false)
     String name;
     @Column(name = "email", nullable = false,unique = true)
     String email;
+    
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "JAVATEST.Roles",
             joinColumns = @JoinColumn(
-                    name = "UserID", referencedColumnName = "UserID", nullable = false),
+                    name = "userId", referencedColumnName = "userId", nullable = false),
             inverseJoinColumns = @JoinColumn(
-                    name = "RoleID", referencedColumnName = "RoleID", nullable = false))
+                    name = "roleId", referencedColumnName = "roleId", nullable = false))
     private List<Role> roles;
+    //getter and setter
     public Long getId()
     {
         return id;

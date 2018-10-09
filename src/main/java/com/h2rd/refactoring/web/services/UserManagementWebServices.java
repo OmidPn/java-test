@@ -1,13 +1,15 @@
 package com.h2rd.refactoring.web.services;
 
-import com.sun.research.ws.wadl.Response;
-import java.util.List;
+import com.h2rd.refactoring.view.UserView;
+import javax.ws.rs.core.Response;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserManagementWebServices
 {
-    Response getUsers();
-    Response findUsers(final String userName);
-    Response addUser(final String name,final String email, final List<String> roles);
-    Response deleteUser(final String userName);
-    Response updateUser(final String name,final String email, final List<String> roles);
+    Response findUsers();
+    Response addUser(final UserView userView);
+    Response deleteUser(final UserView userView);
+    Response updateUser(final UserView userView);
+    Response findUserByName(final String name);
 }

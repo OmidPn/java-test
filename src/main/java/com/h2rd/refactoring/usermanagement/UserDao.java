@@ -1,8 +1,11 @@
 package com.h2rd.refactoring.usermanagement;
 
-import com.j2rd.refactoring.entity.UserView;
+import com.h2rd.refactoring.view.UserView;
 import java.util.ArrayList;
 
+/**
+ * @@deprecated  this class has been changed
+ */
 public class UserDao {
 
     
